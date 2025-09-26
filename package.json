@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "engines": { "node": ">=18.18 <23" },
+  "engines": { "node": "20.x" },
   "dependencies": {
     "framer-motion": "^11.0.0",
     "gsap": "^3.12.5",
