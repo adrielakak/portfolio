@@ -1,0 +1,15 @@
+<!-- public/images/logo-circle.svg -->
+<svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo A circular">
+  <defs>
+    <linearGradient id="g" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#AEB7C5" stop-opacity="0.10"/>
+    </linearGradient>
+  </defs>
+  <!-- fond “glass” -->
+  <circle cx="32" cy="32" r="28" fill="url(#g)"/>
+  <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-opacity="0.18" stroke-width="1"/>
+  <!-- monogramme -->
+  <path d="M20 48L32 16L44 48" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M26 36H38" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+</svg>

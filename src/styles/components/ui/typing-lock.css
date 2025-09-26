@@ -1,0 +1,18 @@
+.typing-wrap{
+  position: relative;           /* pas d'overflow ici */
+}
+
+.typing-ghost{
+  visibility: hidden;           /* réserve la place */
+  display: block;
+}
+
+.typing-live{
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;                  /* occupe la largeur du ghost */
+  display: block;
+  z-index: 1;                   /* au-dessus du ghost */
+  white-space: inherit;         /* suit le wrapping de ton h1 */
+  pointer-events: none;         /* pas d’interception des clics */
+}

@@ -1,0 +1,46 @@
+/* Conteneur */
+.shiny-wrap{
+  position: relative;
+  display: inline-block;
+  line-height: 1.05;
+  --shine-duration: 5s;
+}
+
+/* Texte de base visible en continu */
+.shiny-base{
+  color: #f5f5f7;               /* blanc Apple-like */
+  letter-spacing: -0.02em;
+}
+
+/* Couche “gloss” animée par-dessus */
+.shiny-gloss{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0.85) 50%,
+    rgba(255,255,255,0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: blur(0.5px);
+  mix-blend-mode: screen;
+  animation: shiny-sweep var(--shine-duration) linear infinite;
+  will-change: background-position;
+  pointer-events: none;
+}
+
+/* Désactivation + accessibilité */
+.shiny-wrap.is-disabled .shiny-gloss{ animation: none; }
+@media (prefers-reduced-motion: reduce){
+  .shiny-gloss{ animation: none; }
+}
+
+@keyframes shiny-sweep{
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
