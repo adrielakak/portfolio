@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth scroll global */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+/* si reduce motion, on désactive les anims de scroll */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
 
 /* --- Thème global (valeurs de base) --- */
 :root{
