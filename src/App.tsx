@@ -39,7 +39,7 @@ const navItems = [
     textColor: "#ffffff",
     links: [
       { label: "GitHub", href: "https://github.com/adrielakak", ariaLabel: "Ouvrir GitHub (nouvel onglet)" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/adriel-kourlate", ariaLabel: "Ouvrir LinkedIn (nouvel onglet)" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/adriel-kourlate-28033032b/", ariaLabel: "Ouvrir LinkedIn (nouvel onglet)" },
       { label: "CV (PDF)", href: `${base}cv/adriel-kourlate-cv.pdf`, ariaLabel: "Télécharger CV (PDF)" },
     ],
   },
