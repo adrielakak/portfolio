@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { GoArrowUpRight } from "react-icons/go";
-import { scrollToId } from "../../../lib/scrollTo"; // <-  helper
+import { scrollToId } from "../../../lib/scrollTo"; // <- ton helper
 import "./CardNav.css";
 
 type LinkItem = {
@@ -102,8 +102,9 @@ export default function CardNav({
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    gsap.set(navEl, { height: 60, overflow: "hidden" });
-    gsap.set(cardsRef.current, { y: 50, opacity: 0 });
+    // 🔧 petits boosts perf pour éviter les “shakes”
+    gsap.set(navEl, { height: 60, overflow: "hidden", willChange: "height", force3D: true });
+    gsap.set(cardsRef.current, { y: 50, opacity: 0, willChange: "transform", force3D: true });
 
     const tl = gsap.timeline({ paused: true });
     tl.to(navEl, { height: calculateHeight, duration: 0.4, ease });
@@ -148,6 +149,26 @@ export default function CardNav({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isExpanded]);
 
+  /* ---------- Lock scroll SANS shift (compense la scrollbar) ---------- */
+  useLayoutEffect(() => {
+    // largeur de scrollbar (0 si déjà masquée)
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (isExpanded) {
+      // évite le “coup de hanche” au centre quand la scrollbar disparaît
+      document.body.style.overflow = "hidden";
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [isExpanded]);
+
   /* ---------- Actions ---------- */
   const openMenu = () => {
     const tl = tlRef.current;
@@ -162,7 +183,7 @@ export default function CardNav({
     if (!tl) return;
     setIsHamburgerOpen(false);
     tl.eventCallback("onReverseComplete", () => {
-      setIsExpanded(false); // retourne void
+      setIsExpanded(false); // ✅ retourne void
     });
     tl.reverse();
   };
