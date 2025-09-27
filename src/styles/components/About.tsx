@@ -21,8 +21,8 @@ export default function About() {
           handle="adrielakak"
           status="Disponible"
           contactText="Me contacter"
-          avatarUrl="/images/me.jpg"
-          miniAvatarUrl="/images/me.jpg"
+          avatarUrl="/images/me.png"
+          miniAvatarUrl="/images/me.png"
           showUserInfo
           enableTilt
           enableMobileTilt={false}
