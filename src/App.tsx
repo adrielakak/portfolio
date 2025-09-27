@@ -38,8 +38,8 @@ const navItems = [
     bgColor: "#0b0b10",
     textColor: "#ffffff",
     links: [
-      { label: "GitHub", href: "https://github.com/ton-compte", ariaLabel: "Ouvrir GitHub (nouvel onglet)" },
-      { label: "LinkedIn", href: "https://linkedin.com/in/ton-profil", ariaLabel: "Ouvrir LinkedIn (nouvel onglet)" },
+      { label: "GitHub", href: "https://github.com/adrielakak", ariaLabel: "Ouvrir GitHub (nouvel onglet)" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/adriel-kourlate", ariaLabel: "Ouvrir LinkedIn (nouvel onglet)" },
       { label: "CV (PDF)", href: `${base}cv/adriel-kourlate-cv.pdf`, ariaLabel: "Télécharger CV (PDF)" },
     ],
   },
